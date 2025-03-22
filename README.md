@@ -1,3 +1,4 @@
+
 🌟 Mini Frontend Projects 🚀
 
 Welcome to Mini Frontend Projects – an open-source collection of small, fun, and beginner-friendly frontend projects! 🎨💻 Whether you're learning HTML, CSS, and JavaScript, improving your coding skills, or looking to contribute to open source, this is the perfect place for you! 😊
