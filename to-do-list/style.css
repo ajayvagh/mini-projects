@@ -1,0 +1,185 @@
+*, *:before, *:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #0f0f0f, #1e1e1e); /* Deep dark theme */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: #fff;
+}
+
+/* Main Container */
+.container {
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* New Task Input Section */
+#newtask {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Input Field */
+#newtask input {
+    flex: 1;
+    height: 45px;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    background: #222;
+    color: #fff;
+    border: 2px solid transparent;
+    transition: 0.4s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* RGB border animation on focus */
+#newtask input:focus {
+    outline: none;
+    border-image: linear-gradient(45deg, #ff0000, #ff7300, #ffeb00, #00ff2a, #00f2ff, #6b00ff, #ff00a8, #ff0000) 1;
+    border-width: 2px;
+    animation: rgbBorder 2s linear infinite;
+}
+
+/* Add Button */
+#newtask button {
+    height: 45px;
+    width: 80px;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #9b1ace, #c68b0d);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Button Hover */
+#newtask button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #ff00ff, #9b1ace);
+}
+
+/* Tasks Container */
+#tasks {
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 5px;
+}
+
+/* Scrollbar Styling */
+#tasks::-webkit-scrollbar {
+    width: 6px;
+}
+
+#tasks::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #9b1ace, #ff00ff);
+    border-radius: 10px;
+}
+
+#tasks::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Task Styling with RGB border animation */
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #fff;
+    background: #222;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    border: 2px solid transparent;
+    animation: fadeIn 0.3s ease-in-out;
+    transition: 0.4s;
+}
+
+/* RGB Border Animation */
+.task:hover {
+    border-image: linear-gradient(45deg, #ff0000, #ff7300, #ffeb00, #00ff2a, #00f2ff, #6b00ff, #ff00a8, #ff0000) 1;
+    animation: rgbBorder 2s linear infinite;
+}
+
+/* Completed Task Effect */
+.task.completed span {
+    text-decoration: line-through;
+    color: #bbb;
+    transition: 0.4s;
+}
+
+/* Dustbin Delete Button */
+.task .delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    color: red;
+    transition: 0.3s;
+}
+
+.task .delete:hover {
+    color: darkred;
+    transform: scale(1.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rgbBorder {
+    0% { border-image-source: linear-gradient(45deg, #ff0000, #ff7300, #ffeb00, #00ff2a, #00f2ff, #6b00ff, #ff00a8, #ff0000); }
+    25% { border-image-source: linear-gradient(45deg, #ff7300, #ffeb00, #00ff2a, #00f2ff, #6b00ff, #ff00a8, #ff0000, #ff0000); }
+    50% { border-image-source: linear-gradient(45deg, #ffeb00, #00ff2a, #00f2ff, #6b00ff, #ff00a8, #ff0000, #ff7300, #ff0000); }
+    75% { border-image-source: linear-gradient(45deg, #00ff2a, #00f2ff, #6b00ff, #ff00a8, #ff0000, #ff7300, #ffeb00, #ff0000); }
+    100% { border-image-source: linear-gradient(45deg, #ff0000, #ff7300, #ffeb00, #00ff2a, #00f2ff, #6b00ff, #ff00a8, #ff0000); }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    #newtask {
+        flex-direction: row;
+    }
+
+    #newtask input {
+        width: 100%;
+    }
+
+    #newtask button {
+        width: 80px;
+    }
+}
